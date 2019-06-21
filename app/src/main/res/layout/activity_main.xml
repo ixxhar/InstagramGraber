@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/complete_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jsi.izharhussain.downloadnow.MainActivity"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/toolbar1_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="3dp"
+        android:theme="?attr/actionBarTheme"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/toolbar_cardview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/info_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/apptitle_textview"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_info_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/downloads_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignRight="@+id/apptitle_textview"
+                android:src="@drawable/ic_assignment_black_24dp" />
+
+            <TextView
+                android:id="@+id/apptitle_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/display_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_cardview"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/toolbar1_cardview"
+        android:layout_margin="3dp"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ProgressBar
+                    android:id="@+id/dataprogress_progressbar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/dataprogress_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:text="Fetching Data, \nPlease Wait!"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+            </GridLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/thumbnail_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:visibility="invisible"
+                    app:srcCompat="@color/colorAccent" />
+
+                <VideoView
+                    android:id="@+id/thumbnail_videoview"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/play_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignBottom="@+id/thumbnail_videoview"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible"
+                    app:srcCompat="@android:drawable/ic_media_play" />
+
+                <ImageButton
+                    android:id="@+id/pause_button"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/thumbnail_videoview"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible"
+                    app:srcCompat="@android:drawable/ic_media_pause" />
+
+            </RelativeLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relativeLayout">
+
+                <TextView
+                    android:id="@+id/imagetitle_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="10dp"
+                    android:layout_row="0"
+                    android:text="RandomRandomRandom"
+                    android:textSize="24sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/imagedatetime_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_row="1"
+                    android:text="12/12/5555"
+                    android:textSize="18sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/imagedescription_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="8dp"
+                    android:layout_row="3"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="RandomRandomRandomRandomRandomRandomRandomRandomRandomRandomRandomRandomRandomRandom"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="5dp"
+                    android:layout_row="2">
+
+                    <ImageView
+                        android:id="@+id/comment_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_comment_black_24dp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/comment_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="1000"
+                        android:textSize="15sp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/like_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_favorite_black_24dp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/like_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="1000"
+                        android:textSize="15sp"
+                        android:visibility="invisible" />
+
+                </GridLayout>
+            </GridLayout>
+
+            <GridLayout
+                android:id="@+id/help_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/wellcome_textview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp">
+
+                <ImageButton
+                    android:id="@+id/help_imageButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:src="@drawable/ic_help_black_24dp" />
+
+                <TextView
+                    android:id="@+id/help_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_margin="15dp"
+                    android:layout_row="0"
+                    android:text="Need more Help! Tap on ?" />
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/wellcome_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="20dp"
+                android:text="Wellcome!\nPlease copy share content link from Instagram to Download!"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/bottom_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="3dp"
+        android:theme="?attr/actionBarTheme"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/bottom_cardview_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/download_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_file_download_black_24dp"
+                android:text="Download"
+                android:visibility="visible" />
+
+            <SearchView
+                android:id="@+id/search_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/download_button"
+                android:iconifiedByDefault="false"
+                android:queryHint="Enter URL here!!!"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
