@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView titleTV;
     private TextView descriptionTV;
-    private TextView datetimeTV;
+    //private TextView datetimeTV;
     private TextView likeTV;
     private TextView commentTV;
     private TextView wellcomeTV;
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             thumbnailIV.setVisibility(View.VISIBLE);
         }
-        datetimeTV.setVisibility(View.VISIBLE);
+        //datetimeTV.setVisibility(View.VISIBLE);
         titleTV.setVisibility(View.VISIBLE);
         descriptionTV.setVisibility(View.VISIBLE);
         commentTV.setVisibility(View.VISIBLE);
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     private void hideAllDisplayItems() { //for Hiding display items
 
         videoV.setVisibility(View.INVISIBLE);
-        datetimeTV.setVisibility(View.INVISIBLE);
+        //datetimeTV.setVisibility(View.INVISIBLE);
         titleTV.setVisibility(View.INVISIBLE);
         descriptionTV.setVisibility(View.INVISIBLE);
         commentTV.setVisibility(View.INVISIBLE);
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         viewDownloadsB = (ImageButton) findViewById(R.id.downloads_button);
         pauseButton = (ImageButton) findViewById(R.id.pause_button);
         playButton = (ImageButton) findViewById(R.id.play_button);
-        datetimeTV = (TextView) findViewById(R.id.imagedatetime_textview);
+        //datetimeTV = (TextView) findViewById(R.id.imagedatetime_textview);
         likeTV = (TextView) findViewById(R.id.like_textview);
         commentTV = (TextView) findViewById(R.id.comment_textview);
         infoButton = (ImageButton) findViewById(R.id.info_button);
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             ClipData.Item clipDataItemAt = clipData.getItemAt(0);
             String copiedText = clipDataItemAt.getText().toString();
 
-            if (copiedText.indexOf("https://www.instagram.com/p/") == 0 && copiedText.length() > 28) {   //for Item in ClipBoard
+            if (copiedText.indexOf("https://www.instagram.com/p/") == 0) {   //for Item in ClipBoard
 
                 wellcomeTV.setVisibility(View.INVISIBLE);
                 helpButton.setVisibility(View.INVISIBLE);
@@ -377,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
         if (dataItem != null) {
             titleTV.setText(dataItem.getTitle());
             descriptionTV.setText(dataItem.getDescription());
-            datetimeTV.setText(dataItem.getDatetime());
+            //datetimeTV.setText(dataItem.getDatetime());
             likeTV.setText(dataItem.getLikes());
             commentTV.setText(dataItem.getComments());
 
@@ -471,10 +471,10 @@ public class MainActivity extends AppCompatActivity {
             elements = document.select("meta[property=og:title]");
 
             String completeTitle = elements.attr("content");
-            String[] splitTitle = completeTitle.split("•");
-            String[] channelName = splitTitle[0].split("by");
+            String[] splitTitle = completeTitle.split(":");
+            String channelName = splitTitle[0];
             String postDateTime = splitTitle[1];
-            dataItem.setTitle(channelName[1]);
+            dataItem.setTitle(channelName);
             dataItem.setDatetime(postDateTime);
 
             elements = document.select("meta[property=og:description]");
